@@ -1,14 +1,14 @@
-## 基于 VirtualBox 的网络攻防基础环境搭建
+# 基于 VirtualBox 的网络攻防基础环境搭建
 
 ---
 
-### 实验目的
+## 实验目的
 
 * 掌握 `VirtualBox`虚拟机的安装与使用；
 * 掌握 `VirtualBox` 的虚拟网络类型和按需配置；
 * 掌握 `VirtualBox` 的虚拟硬盘多重加载；
   
-### 实验环境
+## 实验环境
 
 * 计算机 ：`MacOS 12.3.1`
 * 虚拟机 ：`VirtualBox 6.1`
@@ -16,7 +16,7 @@
 * 网关（ Gateway, GW ）：`Debian Buster`
 * 靶机（ Victim ）：`From Sqli to shell / xp-sp3 / Kali`
   
-### 实验要求
+## 实验要求
 
 * 虚拟硬盘配置成多重加载；
 * 搭建满足作业拓扑图所示的虚拟机网络拓扑；
@@ -27,9 +27,9 @@
     * 靶机的所有对外上下行流量必须经过网关 
     * 所有节点均可以访问互联网
   
-### 实验过程
+## 实验过程
 
-#### 一.虚拟硬盘配置成多重加载
+### 一.虚拟硬盘配置成多重加载
 
 以下展示以 `Kali` 为例的操作：
 1. 在 `virtual box` 中从 `管理—虚拟介质管理` 打开虚拟介质管理器
@@ -38,7 +38,7 @@
 
 ![release_multiple](img/release_multiple.jpg)
 
-#### 二.搭建拓扑图所示的虚拟机网络拓扑
+### 二.搭建拓扑图所示的虚拟机网络拓扑
 
 拓扑图如下：
 ![topological_structure](img/topological_structure.jpg)
@@ -79,7 +79,7 @@ Victim-XP-1 和 Victim-Kali-1在同一局域网 Victim1 内，均需要配置内
 > 内存 > 1024 M 的 Windows XP 系统需要更改控制芯片如下：
 ![xp_set](img/xp_set.jpg)
 
-#### 三、连通性测试
+### 三、连通性测试
 
 #### 查询各主机ip地址
 
@@ -193,7 +193,7 @@ tcpdump -i enp0s9 -n -w 20211010.1.pcap
 
 ![attacker can surf internet](img/attacker_can_surf_internet.png)
 
-### 实验总结
+## 实验总结
 
 1. 实验要求已全部完成
    
@@ -228,7 +228,7 @@ tcpdump -i enp0s9 -n -w 20211010.1.pcap
   应该写：
   ` scp -P 2222 root@127.0.0.1:/root/workspace/20211010.1.pcap /Users/gychg/Desktop`
 
-#### 参考资料
+## 参考资料
 
 [解决Host key verification failed](https://www.jianshu.com/p/9bb934837511)
 
@@ -236,7 +236,7 @@ tcpdump -i enp0s9 -n -w 20211010.1.pcap
 
 ## 课后思考题
 
-#### 一、
+### 一、
 #### 以下⾏为分别破坏了 CIA 和 AAA 中哪⼀个属性或多个属性？
 
 CIA ：保密性、完整性、可用性
