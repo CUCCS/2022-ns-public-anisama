@@ -36,12 +36,12 @@
 2. 选中 `Kali.vdi` ，点击释放
 3. 点击类型，选择多重加载，并应用
 
-![release_multiple](/img/release_multiple.jpg)
+![release_multiple](img/release_multiple.jpg)
 
 ##### 二.搭建拓扑图所示的虚拟机网络拓扑
 
 拓扑图如下：
-![topological_structure](/img/topological_structure.jpg)
+![topological_structure](chap0x01/img/topological_structure.jpg)
 通过分析实验要求和拓扑图，可以发现：
 1. 我们需要对网关配置四块网卡
 2. 需要搭建局域网 `Network-1` 和 `Network-2`
