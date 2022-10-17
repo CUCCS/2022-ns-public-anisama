@@ -41,14 +41,14 @@
 ##### 二.搭建拓扑图所示的虚拟机网络拓扑
 
 拓扑图如下：
-![topological_structure](chap0x01/img/topological_structure.jpg)
+![topological_structure](img/topological_structure.jpg)
 通过分析实验要求和拓扑图，可以发现：
 1. 我们需要对网关配置四块网卡
 2. 需要搭建局域网 `Network-1` 和 `Network-2`
 3. 需要对攻击者配置两块网卡
 
 分析图如下：
-![Network_interface_card](/img/Network_interface_card.jpg)
+![Network_interface_card](img/Network_interface_card.jpg)
 
 ##### 网关的网卡配置
 
@@ -58,7 +58,7 @@
 3. 内部网络 `intnet1` ，搭建局域网 `Network-1`
 4. 内部网络 `intnet2` ，搭建局域网 `Network-2`
 
-![gateway](/img/gateway.jpg)
+![gateway](img/gateway.jpg)
 
 ##### 攻击者的网卡配置
 
@@ -66,32 +66,32 @@
 1. `NAT` 网络
 2. `Host-Only` 网络
 
-![attacker](/img/attacker.jpg)
+![attacker](img/attacker.jpg)
 
 ##### 局域网的搭建
 
 以局域网 Network-1 为例：
 Victim-XP-1 和 Victim-Kali-1在同一局域网 Victim1 内，均需要配置内部网络 intnet1
-![victim-1](/img/victim_1.jpg)
+![victim-1](img/victim_1.jpg)
 
-![victim-1.1](/img/victim_1.1.jpg)
+![victim-1.1](img/victim_1.1.jpg)
 
 > 内存 > 1024 M 的 Windows XP 系统需要更改控制芯片如下：
-![xp_set](/img/xp_set.jpg)
+![xp_set](img/xp_set.jpg)
 
 ##### 三、连通性测试
 
 ##### 查询各主机ip地址
 
-![attack_ip](/img/attack_ip.jpg)
+![attack_ip](img/attack_ip.jpg)
 
-![windows_xp1_ip](/img/windows_xp1_ip.jpg)
+![windows_xp1_ip](img/windows_xp1_ip.jpg)
 
-![kali1_ip](/img/kali1_ip.jpg)
+![kali1_ip](img/kali1_ip.jpg)
 
-![windows_xp2_ip](/img/windows_xp2_ip.jpg)
+![windows_xp2_ip](img/windows_xp2_ip.jpg)
 
-![debian2_ip](/img/debian2_ip.jpg)
+![debian2_ip](img/debian2_ip.jpg)
 
 |  主机   | IP地址  |
 |  ----  | ----  |
@@ -105,35 +105,35 @@ Victim-XP-1 和 Victim-Kali-1在同一局域网 Victim1 内，均需要配置内
 
 `Network-1` 中的靶机可以直接访问攻击者主机：
 
-![target_can_access_attacker](/img/target_can_access_attacker.jpg)
+![target_can_access_attacker](img/target_can_access_attacker.jpg)
 
 `Network-2` 中的靶机可以直接访问攻击者主机：
 
-![target_cao_access_attacker2](/img/target2_can_access_attacker.jpg)
+![target_cao_access_attacker2](img/target2_can_access_attacker.jpg)
 
 ##### 攻击者主机无法直接访问靶机
 
 攻击者主机无法直接访问 `Network-1` 中的靶机：
 
-![attacker_cant_access_victim1](/img/attacker_cant_access_victim1.png)
+![attacker_cant_access_victim1](img/attacker_cant_access_victim1.png)
 
 攻击者主机无法直接访问 `Network-2` 中的靶机：
 
-![attacker_cant_access_victim2](/img/attacker_cant_access_victim2.png)
+![attacker_cant_access_victim2](img/attacker_cant_access_victim2.png)
 
 ##### 网关可以直接访问攻击者主机和靶机
 
 网关可以直接访问攻击者主机：
 
-![gateway can access attacker](/img/gateway_can_access_attacker.png)
+![gateway can access attacker](img/gateway_can_access_attacker.png)
 
 网关可以直接访问 `Network-1` 中的靶机：
 
-![gateway can access victim1](/img/gateway_can_access_victim1.png)
+![gateway can access victim1](img/gateway_can_access_victim1.png)
 
 网关可以直接访问 `Network-2` 中的靶机：
 
-![gateway can access victim2](/img/gateway_can_access_victim2.png)
+![gateway can access victim2](img/gateway_can_access_victim2.png)
 
 ##### 靶机的所有对外上下行流量必须经过网关
 
@@ -143,15 +143,15 @@ Victim-XP-1 和 Victim-Kali-1在同一局域网 Victim1 内，均需要配置内
 
 `Network-1` 中的靶机：
 
-![victim1_ping](/img/victim1_ping.jpeg)
+![victim1_ping](img/victim1_ping.jpeg)
 
-![gateway_capture_enp0s3](/img/gateway_capture_enp0s3.jpeg)
+![gateway_capture_enp0s3](img/gateway_capture_enp0s3.jpeg)
 
 `Network-2` 中的靶机：
 
-![victim2_ping](/img/victim2_ping.jpeg)
+![victim2_ping](img/victim2_ping.jpeg)
 
-![gateway_capture_enp0s3_2](/img/gateway_capture_victim2.jpeg)
+![gateway_capture_enp0s3_2](img/gateway_capture_victim2.jpeg)
 
 `tmux` 将抓包数据文件复制到主机用 `Wireshark` 分析：
 
@@ -160,38 +160,38 @@ cd workspace
 tcpdump -i enp0s9 -n -w 20211010.1.pcap
 ```
 
-![tmux_capture](/img/tmux_capture.jpeg)
+![tmux_capture](img/tmux_capture.jpeg)
 
 配置主机与虚拟机的端口映射：
 
 在 `设置 -- 网络 -- 网卡1 -- 端口转发`：
 
-![web_set](/img/web_set.jpeg)
+![web_set](img/web_set.jpeg)
 
 `scp -P 2222 cuc@127.0.0.1:root/workspace/20211010.1.pcap /Users/gychg/Desktop`
 
 然后在 **`Wireshark`** 中分析抓下来的数据包
-![wireshark](/img/wireshark.jpeg)
+![wireshark](img/wireshark.jpeg)
 
-说明靶机和互联网互通的过程中用网关抓包，靶机发送的所有包都能被网关抓到，即靶机的所有对外上下行流量必须经过网关
+发现是对应的 `IP` 地址。说明靶机和互联网互通的过程中用网关抓包，靶机发送的所有包都能被网关抓到，即靶机的所有对外上下行流量必须经过网关
 
 ##### 所有节点均可以访问互联网
 
 网关可以正常访问互联网：
 
-![gateway can surf internet](/img/gateway_can_surf_internet.png)
+![gateway can surf internet](img/gateway_can_surf_internet.png)
 
 `Network-1` 中的靶机可以直接访问互联网：
 
-![victim1 can surf internet](/img/victim1_can_surf_internet.png)
+![victim1 can surf internet](img/victim1_can_surf_internet.png)
 
 `Network-2` 中的靶机可以直接访问互联网：
 
-![victim2 can surf internet](/img/victim2_can_surf_internet.png)
+![victim2 can surf internet](img/victim2_can_surf_internet.png)
 
 攻击者可以正常访问互联网：
 
-![attacker can surf internet](/img/attacker_can_surf_internet.png)
+![attacker can surf internet](img/attacker_can_surf_internet.png)
 
 #### 实验总结
 
@@ -205,10 +205,10 @@ tcpdump -i enp0s9 -n -w 20211010.1.pcap
 
 * 网关无法直接访问 `Network-1` 中的靶机
    * 手动关闭 `Victim-1-Windows XP` 的 `Windows 安全中心 - Windows 防火墙` ，如图：
-   * ![close_firewall](/img/close_firewall.png)
+   * ![close_firewall](img/close_firewall.png)
   
 * 端口转发配置后，使用 `scp` 传输文件时有如下报错：
-  ![bug_scp](/img/bug_scp.png)
+  ![bug_scp](img/bug_scp.png)
   原因大致为没有配置远程登录虚拟机的密码还有没说明映射端口
   解决：配置本地免密远程登录虚拟机
   然后在本地 `iTerm` 输入命令：
@@ -217,7 +217,7 @@ tcpdump -i enp0s9 -n -w 20211010.1.pcap
   ssh-copy-id -i ~/.ssh/id_rsa.pub -p 2222 'cuc@127.0.0.1'
   ```
   于是报以下的错：
-  ![bug](/img/key_set_bug.png)
+  ![bug](img/key_set_bug.png)
   以前配置远程登录的时候好像也试过这个报错，但具体怎么处理忘记了，于是去搜索引擎找到如下解决方法：
   **该报错是因为**在主机系统每次 `ssh` 连接远程操作后，都会把你每个访问过计算机的公钥都记录在主机的目录 `/Users/.ssh/known_hosts` 下，当下次访问相同子机服务器时，会核对公钥。如果公钥不同，会发出警告 `“Host key verification failed”` 。我们在文件中删掉不能登录的对应 `IP` 即可重新登录
   ```bash
@@ -258,17 +258,17 @@ AAA ：认证、授权、审计
 ##### 有⼀次，小明⼝袋里有 100 元，因为打瞌睡，被小偷偷⾛了，搞得晚上没饭吃。又⼀天，小明⼝袋里有 200 元，这次小明为了防范小偷，不打瞌睡了，但却被强盗持⼑威胁抢⾛了，搞得⼀天没饭吃，小明当天就报警了。
 
 1. 试分析以上故事两次失窃事件中的：风险、资产、威胁、弱点、攻击、影响:
-![topic_2](/img/topic_2.jpg)
+![topic_2](img/topic_2.jpg)
 
 2. 试用 P2DR 模型分析案例中的“现⾦被抢”事件中的安全策略、安全防护、安全检测和安全响应:
-![topic_2.2](/img/topic_2.2.jpg)
+![topic_2.2](img/topic_2.2.jpg)
 
 3. “ 被抢 ”事件中，小明的安全策略存在的问题:
 小明直接把钱放在口袋，容易被偷或抢
 
 ##### 三、
 ##### 试分析“ CAPTCHA 图片验证码技术可以阻⽌恶意批量注册⾏为”这句话中的安全策略、安全机制和安全假设分别是什么？ CAPTCHA 图片举例
-![topic_3](/img/topic_3.png)
+![topic_3](img/topic_3.png)
 
 安全策略：认证注册用户的身份真实性、判断注册用户是否为机器人等
 
